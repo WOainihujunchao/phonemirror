@@ -1,0 +1,48 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.phonemirror.sender'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId 'com.phonemirror.sender'
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName '1.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    // WebRTC（含 ScreenCapturerAndroid，用于系统级屏幕采集）
+    // 注意：官方 org.webrtc:google-webrtc 已随 jcenter 关停下架，
+    // 这里使用 Maven Central 上的同名 org.webrtc 包预编译产物（klemeo/WebRTC）
+    implementation 'com.dafruits:webrtc:123.0.0'
+    // WebSocket 信令
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+}

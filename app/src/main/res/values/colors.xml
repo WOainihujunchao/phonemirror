@@ -1,0 +1,5 @@
+<resources>
+    <color name="bg">#0f172a</color>
+    <color name="fg">#ffffff</color>
+    <color name="accent">#2563eb</color>
+</resources>
